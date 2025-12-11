@@ -5,7 +5,7 @@ function Header() {
   return (
     <HeaderStyle>
       <div>
-        <div>날씨 정보</div>
+        <h1>날씨 정보</h1>
         {/* 위치 정보 */}
         <Location />
       </div>
@@ -13,6 +13,9 @@ function Header() {
   );
 }
 
-const HeaderStyle = styled.div``;
+const HeaderStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 export default Header;
