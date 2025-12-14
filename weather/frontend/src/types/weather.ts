@@ -10,7 +10,7 @@ interface PeriodWeather {
   weather_code: number | null;
 }
 
-interface DailyWeather {
+export interface DailyWeather {
   date: string;
   weather_code: number;
   temperature_2m_max: number;

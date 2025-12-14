@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export const getWeatherDescription = (code: number): string => {
   switch (true) {
     case code === 0:
@@ -26,4 +28,8 @@ export const getWeatherIcon = (code: number): string => {
     default:
       return "❓";
   }
+};
+
+export const formatDate = (dateString: string): string => {
+  return dayjs(dateString).format("MM.DD");
 };

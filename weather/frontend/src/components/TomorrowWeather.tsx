@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import type { WeatherDetailProps } from "../types/weather";
-import { getWeatherDescription, getWeatherIcon } from "../utils/weatherUtils";
+import {
+  formatDate,
+  getWeatherDescription,
+  getWeatherIcon,
+} from "../utils/weatherUtils";
+import TempText from "./TempText";
+import WeatherIcon from "./WeatherIcon";
 
 function TomorrowWeather({ weatherData }: WeatherDetailProps) {
   const tomorrow = weatherData.daily[2];
@@ -12,32 +18,36 @@ function TomorrowWeather({ weatherData }: WeatherDetailProps) {
 
   return (
     <TomorrowWeatherStyle>
-      <h1>TomorrowWeather</h1>
-      <div className="date">{tomorrowDate}</div>
+      <h1>내일</h1>
+      <div className="date">{formatDate(tomorrowDate)}</div>
       <div className="weather-info">
         <div className="morning">
           <span>Morning: </span>
           {tomorrowMorningWeatherCode !== null ? (
             <>
-              <span>{getWeatherIcon(tomorrowMorningWeatherCode)}</span>
+              <WeatherIcon size="large">
+                {getWeatherIcon(tomorrowMorningWeatherCode)}
+              </WeatherIcon>
               <span>{getWeatherDescription(tomorrowMorningWeatherCode)}</span>
             </>
           ) : (
             <span>데이터가 존재하지 않습니다.</span>
           )}
-          <span>{tomorrowMorningTemp}°C</span>
+          <TempText>{tomorrowMorningTemp}°C</TempText>
         </div>
         <div className="afternoon">
           <span>Afternoon: </span>
           {tomorrowAfternoonWeatherCode !== null ? (
             <>
-              <span>{getWeatherIcon(tomorrowAfternoonWeatherCode)}</span>
+              <WeatherIcon size="large">
+                {getWeatherIcon(tomorrowAfternoonWeatherCode)}
+              </WeatherIcon>
               <span>{getWeatherDescription(tomorrowAfternoonWeatherCode)}</span>
             </>
           ) : (
             <span>데이터가 존재하지 않습니다.</span>
           )}
-          <span>{tomorrowAfternoonTemp}°C</span>
+          <TempText isMax>{tomorrowAfternoonTemp}°C</TempText>
         </div>
       </div>
     </TomorrowWeatherStyle>
