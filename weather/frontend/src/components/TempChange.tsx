@@ -30,7 +30,7 @@ const TempChange: React.FC<TempChangeProps> = ({ change }) => {
   );
 };
 
-const TempChangeStyle = styled.div<StyleProps>`
+const TempChangeStyle = styled.span<StyleProps>`
   font-weight: bold;
   color: ${({ theme, isPositive, isNegative }) => {
     if (isPositive) return theme.colors.maxTemp;

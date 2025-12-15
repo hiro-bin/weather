@@ -27,20 +27,19 @@ function TodayWeather({ weatherData }: WeatherDetailProps) {
   return (
     <TodayWeatherStyle>
       <h1>오늘</h1>
-      <p>{`현재 ${formatDate(todayDate)}`}</p>
+      <p>{`${formatDate(todayDate)}`}</p>
       <WeatherIcon size="large">{`${getWeatherIcon(todayWeatherCode)}`}</WeatherIcon>
       <p>{`${getWeatherDescription(todayWeatherCode)}`}</p>
-      <p>{`${todayCurrentTemp}`}</p>
-      <p>
-        어제보다 <TempChange change={tempChange}></TempChange>
-      </p>
-      <TempText>{`최저 ${todayMinTemp}`}</TempText>
-      <TempText isMax>{`최고 ${todayMaxTemp}`}</TempText>
-      <p>{`습도 ${todayHumidity}%`}</p>
+      <p>{`${todayCurrentTemp}°`}<TempChange change={tempChange}></TempChange></p>
+      <TempText>{`최저 ${todayMinTemp}°`}</TempText>
+      <TempText isMax>{`최고 ${todayMaxTemp}°`}</TempText>
+      <span>{`습도 ${todayHumidity}%`}</span>
     </TodayWeatherStyle>
   );
 }
 
-const TodayWeatherStyle = styled.div``;
+const TodayWeatherStyle = styled.div`
+  text-align: center;
+`;
 
 export default TodayWeather;

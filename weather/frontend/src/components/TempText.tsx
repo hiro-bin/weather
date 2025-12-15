@@ -5,7 +5,7 @@ interface TempTextProps {
   children: React.ReactNode;
 }
 
-const TempText = styled.p<TempTextProps>`
+const TempText = styled.span<TempTextProps>`
   color: ${({ isMax, theme }) =>
     isMax ? theme.colors.maxTemp : theme.colors.minTemp};
 `;

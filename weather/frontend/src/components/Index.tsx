@@ -8,6 +8,8 @@ function Index() {
   );
 }
 
-const IndexStyle = styled.div``;
+const IndexStyle = styled.div`
+  text-align: center;
+`;
 
 export default Index;
